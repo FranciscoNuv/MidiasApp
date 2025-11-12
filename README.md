@@ -2,3 +2,4 @@
 
 add sqlite-net-pcl
 add LocalizationResourceManager.MAUI
+add CommunityToolkit.Maui
