@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using LocalizationResourceManager.Maui;
+using MidiasApp.Resources;
+using Microsoft.Extensions.Logging;
 
 namespace MidiasApp
 {
@@ -13,7 +15,14 @@ namespace MidiasApp
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                })
+                .UseLocalizationResourceManager(settings =>
+                {
+                    settings.AddResource(AppResources.ResourceManager);
+                    settings.RestoreLatestCulture(true);
                 });
+                
+            builder.Services.AddSingleton<MainPage>();
 
 #if DEBUG
     		builder.Logging.AddDebug();
